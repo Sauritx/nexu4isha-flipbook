@@ -1,24 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Heart } from "lucide-react";
+import Flipbook from "@/components/Flipbook";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "nexu4isha · A Birthday Flipbook for Didi" },
+      {
+        name: "description",
+        content: "A little flipbook of birthday pages, made with love for Didi. Turn each page one by one.",
+      },
+      { property: "og:title", content: "nexu4isha · A Birthday Flipbook for Didi" },
+      {
+        property: "og:description",
+        content: "Turn the pages of a little birthday flipbook made with love for Didi.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="fb-backdrop relative flex min-h-dvh flex-col overflow-x-hidden">
+      <header className="flex flex-col items-center pt-6 pb-4">
+        <h1 className="gold-text font-script text-5xl font-bold tracking-wide sm:text-6xl">nexu4isha</h1>
+        <p className="mt-1 flex items-center gap-1.5 font-hand text-lg text-muted-foreground">
+          a birthday flipbook for Didi
+          <Heart className="h-4 w-4 fill-primary text-primary" />
+        </p>
+      </header>
+
+      <main className="flex flex-1 flex-col">
+        <Flipbook />
+      </main>
+
+      <footer className="pb-4 pt-2 text-center">
+        <p className="font-hand text-base text-muted-foreground/80">from your (not-so) chota bacha ♡</p>
+      </footer>
     </div>
   );
 }
