@@ -4,9 +4,9 @@ import coverAsset from "@/assets/cover.webp.asset.json";
 import page1 from "@/assets/page-1.png.asset.json";
 import page2 from "@/assets/page-2.webp.asset.json";
 import page3 from "@/assets/page-3.webp.asset.json";
-import page4 from "@/assets/page-4.png.asset.json";
+import page4 from "@/assets/page-4.webp.asset.json";
 import page5 from "@/assets/page-5.png.asset.json";
-import page6 from "@/assets/page-6.webp.asset.json";
+import page6 from "@/assets/page-6.png.asset.json";
 import { cn } from "@/lib/utils";
 
 const PAGES = [
