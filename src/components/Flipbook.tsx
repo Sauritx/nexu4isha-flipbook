@@ -22,6 +22,8 @@ const PAGES = [
 const LAST = PAGES.length - 1;
 const FLIP_MS = 900;
 
+const pageAt = (i: number) => PAGES[i] ?? PAGES[0]!;
+
 export default function Flipbook() {
   const [flipped, setFlipped] = useState<boolean[]>(() => Array(LAST).fill(false));
   const [inFlight, setInFlight] = useState<number | null>(null);
@@ -147,7 +149,7 @@ export default function Flipbook() {
         <div className="flip-book">
           {/* page revealed beneath every leaf */}
           <div className="flip-base">
-            <img src={PAGES[baseIndex].url} alt={PAGES[baseIndex].label} draggable={false} />
+            <img src={pageAt(baseIndex).url} alt={pageAt(baseIndex).label} draggable={false} />
           </div>
 
           {PAGES.slice(0, LAST).map((page, i) => {
@@ -169,7 +171,7 @@ export default function Flipbook() {
                   <img src={page.url} alt={page.label} draggable={false} />
                 </div>
                 <div className="leaf-face leaf-face--back">
-                  <img src={PAGES[i + 1].url} alt={PAGES[i + 1].label} draggable={false} />
+                  <img src={pageAt(i + 1).url} alt={pageAt(i + 1).label} draggable={false} />
                 </div>
               </div>
             );
@@ -191,7 +193,7 @@ export default function Flipbook() {
             tap the page or swipe to turn it <Heart className="mb-1 inline h-4 w-4" />
           </p>
         ) : (
-          <p className="font-hand text-lg text-muted-foreground">{PAGES[current].label}</p>
+          <p className="font-hand text-lg text-muted-foreground">{pageAt(current).label}</p>
         )}
 
         <div className="flex items-center gap-4">
