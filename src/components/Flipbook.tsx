@@ -115,12 +115,12 @@ export default function Flipbook() {
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
-    touchX.current = e.touches[0].clientX;
+    touchX.current = e.touches[0]?.clientX ?? null;
   };
 
   const onTouchEnd = (e: React.TouchEvent) => {
     if (touchX.current === null) return;
-    const delta = e.changedTouches[0].clientX - touchX.current;
+    const delta = (e.changedTouches[0]?.clientX ?? touchX.current) - touchX.current;
     touchX.current = null;
     if (Math.abs(delta) < 36) return;
     swipedRef.current = true;
