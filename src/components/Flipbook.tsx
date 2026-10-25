@@ -1,22 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
-import coverAsset from "@/assets/cover.webp.asset.json";
-import page1 from "@/assets/page-1.png.asset.json";
-import page2 from "@/assets/page-2.webp.asset.json";
-import page3 from "@/assets/page-3.webp.asset.json";
-import page4 from "@/assets/page-4.webp.asset.json";
-import page5 from "@/assets/page-5.png.asset.json";
-import page6 from "@/assets/page-6.png.asset.json";
+import coverAsset from "@/assets/cover.webp";
+import page1 from "@/assets/page-1.png";
+import page2 from "@/assets/page-2.webp";
+import page3 from "@/assets/page-3.webp";
+import page4 from "@/assets/page-4.webp";
+import page5 from "@/assets/page-5.png";
+import page6 from "@/assets/page-6.png";
 import { cn } from "@/lib/utils";
 
 const PAGES = [
-  { url: coverAsset.url, label: "Cover" },
-  { url: page1.url, label: "Things 1 – 3" },
-  { url: page2.url, label: "Things 4 – 7" },
-  { url: page3.url, label: "Things 8 – 10" },
-  { url: page4.url, label: "Things 11 – 14" },
-  { url: page5.url, label: "Things 15 – 17" },
-  { url: page6.url, label: "Final Wishes" },
+  { url: coverAsset, label: "Cover" },
+  { url: page1, label: "Things 1 – 3" },
+  { url: page2, label: "Things 4 – 7" },
+  { url: page3, label: "Things 8 – 10" },
+  { url: page4, label: "Things 11 – 14" },
+  { url: page5, label: "Things 15 – 17" },
+  { url: page6, label: "Final Wishes" },
 ];
 
 const LAST = PAGES.length - 1;
